@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="MAVAGEN: Multimodal Avatar Generation Framework for Personalized Human-Computer Interaction">
+  <meta name="keywords" content="MAVAGEN, avatar generation, multimodal generation, emotion-aware avatars, human-computer interaction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAVAGEN</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+  <a id="btt-button" href="#top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+      <polygon points="12 6.586 3.293 15.293 4.707 16.707 12 9.414 19.293 16.707 20.707 15.293 12 6.586"/>
+    </svg>
+  </a>
+
+  <section id="top" class="hero publication-hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <p class="publication-kicker">Project Page</p>
+            <h1 class="title is-1 publication-title">
+              MAVAGEN: Multimodal Avatar Generation Framework for Personalized Human-Computer Interaction
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://hci.nw.ru/ru/employees/9" target="_blank" rel="noopener">Alexandr Axyonov</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://hci.nw.ru/ru/employees/14" target="_blank" rel="noopener">Elena Ryumina</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://hci.nw.ru/ru/employees/3" target="_blank" rel="noopener">Dmitry Ryumin</a><sup>1</sup>,
+              </span>
+              <span class="author-block">Alexey Karpov<sup>1</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors publication-affiliation">
+              <span class="author-block">
+                <sup>1</sup>
+                <a href="https://spcras.ru" target="_blank" rel="noopener">
+                  St. Petersburg Federal Research Center of the Russian Academy of Sciences
+                </a>
+              </span>
+            </div>
+
+            <div class="publication-links">
+              <a class="button is-dark is-rounded" href="#method">
+                <span>Method</span>
+              </a>
+              <a class="button is-dark is-rounded" href="#video-comparison">
+                <span>Videos</span>
+              </a>
+              <a class="button is-dark is-rounded" href="#results">
+                <span>Results</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section abstract-section">
+    <div class="container is-max-desktop">
+      <div class="content has-text-justified">
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <p>
+          Digital-avatar systems still provide limited control over emotionally expressive behavior in human-computer interaction,
+          especially in LLM-based chatbots and virtual assistants with personalized visual embodiments. To address this problem,
+          we propose MAVAGEN, a multimodal avatar generation framework for synthesizing upper-body digital avatars with personalized
+          appearance and controllable emotional expression. The user specifies the desired gender and age, and provides a short text
+          input from which the target emotional state is inferred. MAVAGEN retrieves an identity image from the HaGRIDv2-1M corpus
+          and generates an avatar clip with synchronized facial expressions, hand gestures, and expressive speech.
+        </p>
+        <p>
+          The framework uses six feature streams: textual features, emotion-distribution features, landmark-based pose features,
+          depth-geometry features, RGB-appearance features, and acoustic features. In quantitative evaluation against recent human
+          animation methods, MAVAGEN achieves the best overall avatar quality, with FID 48.20, FVD 592.00, SSIM 0.741, Sync-C 7.40,
+          HKC 0.929, HKV 25.30, CSIM 0.563, and EmoAcc 0.88.
+        </p>
+      </div>
+
+      <div class="contribution-grid">
+        <div class="contribution-item">
+          <h3>Personalized Appearance</h3>
+          <p>Avatar identity is conditioned on requested gender and age attributes.</p>
+        </div>
+        <div class="contribution-item">
+          <h3>Emotion Control</h3>
+          <p>Text-derived emotional state guides speech, facial motion, and gestures.</p>
+        </div>
+        <div class="contribution-item">
+          <h3>Multimodal Fusion</h3>
+          <p>Text, emotion, pose, depth, RGB appearance, and acoustic streams are fused in one generation pipeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="method" class="section method-section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Method</h2>
+      <div class="content has-text-justified">
+        <p>
+          MAVAGEN consists of an LLM-based chatbot and an avatar generation module. The assistant collects avatar attributes,
+          estimates the target emotion from the user message, retrieves a matching identity image, extracts landmark and depth
+          representations, generates expressive speech, and passes aligned multimodal embeddings into a diffusion-based generator.
+        </p>
+      </div>
+      <div class="pipeline-frame">
+        <img class="method-image" src="./static/img/pipeline.jpg" alt="Pipeline of the proposed MAVAGEN framework">
+      </div>
+      <p class="caption">Pipeline of the proposed MAVAGEN framework.</p>
+    </div>
+  </section>
+
+  <section id="video-comparison" class="section comparison-section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Video Comparison</h2>
+      <p class="subtitle is-5 has-text-centered">
+        Qualitative comparison between MAVAGEN and EchoMimicV2.
+      </p>
+
+      <div class="video-comparison-grid">
+        <div class="video-card">
+          <div class="video-card-header">
+            <h3>MAVAGEN</h3>
+            <span>Ours</span>
+          </div>
+          <div class="video-frame">
+            <video controls playsinline preload="metadata">
+              <source src="./static/video/mavagen.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p>Personalized upper-body avatar generation with explicit emotion and acoustic conditioning.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-card-header">
+            <h3>EchoMimicV2</h3>
+            <span>Reference</span>
+          </div>
+          <div class="video-frame">
+            <video controls playsinline preload="metadata">
+              <source src="./static/video/echo.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p>Reference system for visual and audio-visual comparison.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="section results-section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+      <p class="subtitle is-5 has-text-centered">
+        Lower FID, FVD, E-FID, and Sync-D are better. Higher SSIM, PSNR, Sync-C, HKC, HKV, CSIM, and EmoAcc are better.
+      </p>
+
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <h3>FID</h3>
+          <p class="value">48.20</p>
+          <p>Frame realism</p>
+        </div>
+        <div class="metric-box">
+          <h3>FVD</h3>
+          <p class="value">592.00</p>
+          <p>Temporal coherence</p>
+        </div>
+        <div class="metric-box">
+          <h3>Sync-C</h3>
+          <p class="value">7.40</p>
+          <p>Audio-visual synchrony</p>
+        </div>
+        <div class="metric-box">
+          <h3>EmoAcc</h3>
+          <p class="value">0.88</p>
+          <p>Target emotion agreement</p>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="table is-fullwidth comparison-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>FID &darr;</th>
+              <th>FVD &darr;</th>
+              <th>SSIM &uarr;</th>
+              <th>PSNR &uarr;</th>
+              <th>E-FID &darr;</th>
+              <th>Sync-D &darr;</th>
+              <th>Sync-C &uarr;</th>
+              <th>HKC &uarr;</th>
+              <th>HKV &uarr;</th>
+              <th>CSIM &uarr;</th>
+              <th>EmoAcc &uarr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>EchoMimicV2</td>
+              <td>50.10</td>
+              <td>605.30</td>
+              <td>0.736</td>
+              <td>21.90</td>
+              <td class="is-best">2.240</td>
+              <td>7.10</td>
+              <td>7.150</td>
+              <td>0.921</td>
+              <td>25.20</td>
+              <td>0.555</td>
+              <td>--</td>
+            </tr>
+            <tr class="ours-row">
+              <td>MAVAGEN</td>
+              <td class="is-best">48.20</td>
+              <td class="is-best">592.00</td>
+              <td class="is-best">0.741</td>
+              <td class="is-best">21.95</td>
+              <td>2.250</td>
+              <td class="is-best">6.85</td>
+              <td class="is-best">7.40</td>
+              <td class="is-best">0.929</td>
+              <td class="is-best">25.30</td>
+              <td class="is-best">0.563</td>
+              <td class="is-best">0.88</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content has-text-justified result-note">
+        <p>
+          Compared with EchoMimicV2, MAVAGEN improves frame and sequence quality, slightly improves audio-visual synchrony
+          and motion consistency, and introduces EmoAcc as an auxiliary task-specific measure of emotional agreement.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section citation-section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Citation</h2>
+      <pre><code>@article{axyonov2026mavagen,
+  title={MAVAGEN: Multimodal Avatar Generation Framework for Personalized Human-Computer Interaction},
+  author={Axyonov, Alexandr and Ryumina, Elena and Ryumin, Dmitry and Karpov, Alexey},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          This page was built from the Nerfies project-page template and adapted for MAVAGEN.
+          The website template is licensed under a
+          <a rel="license noopener" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+            Creative Commons Attribution-ShareAlike 4.0 International License
+          </a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./static/js/index.js"></script>
+</body>
+</html>
