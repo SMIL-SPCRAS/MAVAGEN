@@ -7,7 +7,8 @@ Static GitHub Pages project page for:
 The page is built from the current template and uses:
 
 - `static/img/pipeline.jpg` for the method diagram.
-- `static/video/AnimateAnyone_1 .mp4`, `static/video/MimicMotion.mp4`, `static/video/echo_1.mp4`, and `static/video/our.mp4` for qualitative video comparison.
+- `static/video/AnimateAnyone_1 .mp4`, `static/video/MimicMotion.mp4`, `static/video/echo_1.mp4`, and `static/video/our.mp4` for the first qualitative video comparison.
+- `static/video/AnimateAnyone_2.mp4`, `static/video/MimicMotion_2.mp4`, `static/video/echo_2.mp4`, and `static/video/our_2.mp4` for the second qualitative video comparison.
 
 ## Acknowledgments
 
