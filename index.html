@@ -126,10 +126,43 @@
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Video Comparison</h2>
       <p class="subtitle is-5 has-text-centered">
-        Qualitative comparison between MAVAGEN and EchoMimicV2.
+        Qualitative comparison across the evaluated avatar generation methods.
       </p>
 
       <div class="video-comparison-grid">
+        <div class="video-card">
+          <div class="video-card-header">
+            <h3>AnimateAnyone</h3>
+          </div>
+          <div class="video-frame">
+            <video controls playsinline preload="metadata">
+              <source src="./static/video/AnimateAnyone_1%20.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-card-header">
+            <h3>MimicMotion</h3>
+          </div>
+          <div class="video-frame">
+            <video controls playsinline preload="metadata">
+              <source src="./static/video/MimicMotion.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-card-header">
+            <h3>EchoMimicV2</h3>
+          </div>
+          <div class="video-frame">
+            <video controls playsinline preload="metadata">
+              <source src="./static/video/echo_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
         <div class="video-card">
           <div class="video-card-header">
             <h3>MAVAGEN</h3>
@@ -137,23 +170,9 @@
           </div>
           <div class="video-frame">
             <video controls playsinline preload="metadata">
-              <source src="./static/video/mavagen.mp4" type="video/mp4">
+              <source src="./static/video/our.mp4" type="video/mp4">
             </video>
           </div>
-          <p>Personalized upper-body avatar generation with explicit emotion and acoustic conditioning.</p>
-        </div>
-
-        <div class="video-card">
-          <div class="video-card-header">
-            <h3>EchoMimicV2</h3>
-            <span>Reference</span>
-          </div>
-          <div class="video-frame">
-            <video controls playsinline preload="metadata">
-              <source src="./static/video/echo.mp4" type="video/mp4">
-            </video>
-          </div>
-          <p>Reference system for visual and audio-visual comparison.</p>
         </div>
       </div>
     </div>
@@ -208,6 +227,34 @@
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td>AnimateAnyone</td>
+              <td>60.10</td>
+              <td>1030.12</td>
+              <td>0.726</td>
+              <td>20.40</td>
+              <td>3.900</td>
+              <td>14.10</td>
+              <td>0.950</td>
+              <td>0.805</td>
+              <td>23.70</td>
+              <td>0.380</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>MimicMotion</td>
+              <td>55.20</td>
+              <td>635.40</td>
+              <td>0.705</td>
+              <td>19.10</td>
+              <td>2.700</td>
+              <td>8.10</td>
+              <td>1.450</td>
+              <td>0.902</td>
+              <td>24.70</td>
+              <td>0.520</td>
+              <td>--</td>
+            </tr>
             <tr>
               <td>EchoMimicV2</td>
               <td>50.10</td>

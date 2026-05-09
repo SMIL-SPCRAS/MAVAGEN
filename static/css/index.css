@@ -116,12 +116,12 @@ a:hover {
 
 .video-card video {
   display: block;
+  height: 100%;
+  object-fit: contain;
   width: 100%;
   background: transparent;
   border: 0;
   outline: 0;
-  transform: scale(1.018);
-  transform-origin: center center;
 }
 
 .caption {
@@ -209,19 +209,48 @@ a:hover {
   max-width: 820px;
 }
 
+.comparison-section .container {
+  overflow: visible;
+}
+
 .video-comparison-grid {
   display: grid;
   gap: 1.4rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-columns: minmax(420px, 460px);
+  grid-auto-flow: column;
+  justify-content: center;
+  margin-left: calc(50% - 50vw + 1.5rem);
+  margin-right: calc(50% - 50vw + 1.5rem);
   margin-top: 2.25rem;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 0.25rem 0.25rem 1rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: rgba(21, 108, 91, 0.36) transparent;
+  scrollbar-width: thin;
+}
+
+.video-comparison-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.video-comparison-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.video-comparison-grid::-webkit-scrollbar-thumb {
+  background: rgba(21, 108, 91, 0.28);
+  border-radius: 999px;
 }
 
 .video-card {
   overflow: hidden;
   padding: 1rem;
+  scroll-snap-align: start;
 }
 
 .video-frame {
+  aspect-ratio: 1 / 1;
   background: #f2f6f3;
   border-radius: 6px;
   line-height: 0;
@@ -233,7 +262,8 @@ a:hover {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0 0 0.85rem;
+  min-height: 1.65rem;
+  padding: 0 0 0.75rem;
 }
 
 .video-card-header h3 {
@@ -249,11 +279,6 @@ a:hover {
   line-height: 1;
   padding: 0.45rem 0.65rem;
   white-space: nowrap;
-}
-
-.video-card p {
-  line-height: 1.55;
-  padding-top: 1rem;
 }
 
 .metrics-grid {
@@ -379,9 +404,6 @@ a:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .video-comparison-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media screen and (max-width: 640px) {
@@ -404,6 +426,13 @@ a:hover {
   .contribution-grid,
   .metrics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .video-comparison-grid {
+    grid-auto-columns: calc(100vw - 3rem);
+    justify-content: start;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   #btt-button {
