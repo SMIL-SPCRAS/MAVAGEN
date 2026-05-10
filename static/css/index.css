@@ -22,6 +22,10 @@ body {
   font-family: "Noto Sans", Arial, sans-serif;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 a {
   color: var(--accent);
 }
@@ -201,6 +205,59 @@ a:hover {
   width: 100%;
 }
 
+.references-section .subtitle {
+  color: var(--muted);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 760px;
+}
+
+.reference-grid {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 760px;
+}
+
+.reference-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.reference-card:hover {
+  border-color: rgba(21, 108, 91, 0.42);
+  box-shadow: 0 10px 22px rgba(28, 42, 36, 0.12);
+  transform: translateY(-4px);
+}
+
+.reference-card img {
+  aspect-ratio: 4 / 3;
+  background: #f2f6f3;
+  display: block;
+  object-fit: contain;
+  width: 100%;
+}
+
+.reference-card a {
+  cursor: zoom-in;
+  display: block;
+}
+
+.reference-card h3 {
+  font-family: "Google Sans", "Noto Sans", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 1rem;
+}
+
 .comparison-section .subtitle,
 .results-section .subtitle {
   color: var(--muted);
@@ -363,6 +420,53 @@ a:hover {
   white-space: pre;
 }
 
+.citation-meta {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+.image-modal {
+  align-items: center;
+  background: rgba(20, 24, 22, 0.78);
+  display: none;
+  inset: 0;
+  justify-content: center;
+  padding: 2rem;
+  position: fixed;
+  z-index: 1000;
+}
+
+.image-modal.is-open {
+  display: flex;
+}
+
+.image-modal img {
+  background: var(--surface);
+  border-radius: 8px;
+  max-height: 88vh;
+  max-width: 92vw;
+  object-fit: contain;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+}
+
+.image-modal-close {
+  align-items: center;
+  background: var(--surface);
+  border: 0;
+  border-radius: 999px;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.7rem;
+  height: 42px;
+  justify-content: center;
+  line-height: 1;
+  position: fixed;
+  right: 1.5rem;
+  top: 1.5rem;
+  width: 42px;
+}
+
 .footer {
   background: #202422;
   color: #dfe7e2;
@@ -432,6 +536,7 @@ a:hover {
   }
 
   .contribution-grid,
+  .reference-grid,
   .metrics-grid {
     grid-template-columns: 1fr;
   }

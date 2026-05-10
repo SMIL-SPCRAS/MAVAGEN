@@ -122,6 +122,30 @@
     </div>
   </section>
 
+  <section class="section references-section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Reference Images</h2>
+      <p class="subtitle is-5 has-text-centered">
+        Input reference images used for the qualitative video examples.
+      </p>
+
+      <div class="reference-grid">
+        <div class="reference-card">
+          <a href="./static/img/ref_1.jpg" class="reference-lightbox-link" aria-label="Open reference image for example 1">
+            <img src="./static/img/ref_1.jpg" alt="Reference image for qualitative example 1">
+          </a>
+          <h3>Example 1</h3>
+        </div>
+        <div class="reference-card">
+          <a href="./static/img/ref_2.jpg" class="reference-lightbox-link" aria-label="Open reference image for example 2">
+            <img src="./static/img/ref_2.jpg" alt="Reference image for qualitative example 2">
+          </a>
+          <h3>Example 2</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="video-comparison" class="section comparison-section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Video Comparison</h2>
@@ -348,9 +372,14 @@
   <section class="section citation-section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Citation</h2>
+      <p class="citation-meta has-text-centered">
+        Journal: <em>Multimodal Technologies and Interaction</em> (MTI), MDPI.
+      </p>
       <pre><code>@article{axyonov2026mavagen,
   title={MAVAGEN: Multimodal Avatar Generation Framework for Personalized Human-Computer Interaction},
   author={Axyonov, Alexandr and Ryumina, Elena and Ryumin, Dmitry and Karpov, Alexey},
+  journal={Multimodal Technologies and Interaction},
+  publisher={MDPI},
   year={2026}
 }</code></pre>
     </div>
@@ -369,6 +398,11 @@
       </div>
     </div>
   </footer>
+
+  <div class="image-modal" id="reference-modal" aria-hidden="true" role="dialog" aria-label="Reference image preview">
+    <button class="image-modal-close" type="button" aria-label="Close image preview">&times;</button>
+    <img src="" alt="">
+  </div>
 
   <script src="./static/js/index.js"></script>
 </body>
