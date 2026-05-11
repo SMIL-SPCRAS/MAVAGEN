@@ -349,7 +349,7 @@ a:hover {
 .metrics-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   margin-top: 2rem;
 }
 
@@ -373,7 +373,7 @@ a:hover {
 
 .comparison-table {
   border: 1px solid var(--border);
-  min-width: 980px;
+  min-width: 1060px;
 }
 
 .comparison-table thead th {
@@ -405,6 +405,21 @@ a:hover {
 .comparison-table .is-best {
   color: var(--accent-strong);
   font-weight: 700;
+}
+
+.result-figure {
+  margin-top: 2rem;
+}
+
+.result-figure img {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: block;
+  margin: 0 auto;
+  max-width: 820px;
+  width: 100%;
 }
 
 .result-note {

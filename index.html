@@ -84,23 +84,8 @@
           The framework uses six feature streams: textual features, emotion-distribution features, landmark-based pose features,
           depth-geometry features, RGB-appearance features, and acoustic features. In quantitative evaluation against recent human
           animation methods, MAVAGEN achieves the best overall avatar quality, with FID 48.20, FVD 592.00, SSIM 0.741, Sync-C 7.40,
-          HKC 0.929, HKV 25.30, CSIM 0.563, and EmoAcc 0.88.
+          HKC 0.929, HKV 25.30, CSIM 0.563, EmoAcc 0.88, and MOS 6.97.
         </p>
-      </div>
-
-      <div class="contribution-grid">
-        <div class="contribution-item">
-          <h3>Personalized Appearance</h3>
-          <p>Avatar identity is conditioned on requested gender and age attributes.</p>
-        </div>
-        <div class="contribution-item">
-          <h3>Emotion Control</h3>
-          <p>Text-derived emotional state guides speech, facial motion, and gestures.</p>
-        </div>
-        <div class="contribution-item">
-          <h3>Multimodal Fusion</h3>
-          <p>Text, emotion, pose, depth, RGB appearance, and acoustic streams are fused in one generation pipeline.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -255,7 +240,7 @@
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
       <p class="subtitle is-5 has-text-centered">
-        Lower FID, FVD, E-FID, and Sync-D are better. Higher SSIM, PSNR, Sync-C, HKC, HKV, CSIM, and EmoAcc are better.
+        Lower FID, FVD, E-FID, and Sync-D are better. Higher SSIM, PSNR, Sync-C, HKC, HKV, CSIM, EmoAcc, and MOS are better.
       </p>
 
       <div class="metrics-grid">
@@ -279,6 +264,11 @@
           <p class="value">0.88</p>
           <p>Target emotion agreement</p>
         </div>
+        <div class="metric-box">
+          <h3>MOS</h3>
+          <p class="value">6.97</p>
+          <p>Subjective quality</p>
+        </div>
       </div>
 
       <div class="table-container">
@@ -297,6 +287,7 @@
               <th>HKV &uarr;</th>
               <th>CSIM &uarr;</th>
               <th>EmoAcc &uarr;</th>
+              <th>MOS &uarr;</th>
             </tr>
           </thead>
           <tbody>
@@ -313,6 +304,7 @@
               <td>23.70</td>
               <td>0.380</td>
               <td>--</td>
+              <td>2.64 &plusmn; 1.44</td>
             </tr>
             <tr>
               <td>MimicMotion</td>
@@ -327,6 +319,7 @@
               <td>24.70</td>
               <td>0.520</td>
               <td>--</td>
+              <td>3.59 &plusmn; 2.20</td>
             </tr>
             <tr>
               <td>EchoMimicV2</td>
@@ -341,6 +334,7 @@
               <td>25.20</td>
               <td>0.555</td>
               <td>--</td>
+              <td>5.26 &plusmn; 2.16</td>
             </tr>
             <tr class="ours-row">
               <td>MAVAGEN</td>
@@ -355,15 +349,24 @@
               <td class="is-best">25.30</td>
               <td class="is-best">0.563</td>
               <td class="is-best">0.88</td>
+              <td class="is-best">6.97 &plusmn; 2.35</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <div class="result-figure">
+        <img src="./static/img/mos_boxplot.png" alt="Distribution of subjective MOS ratings for compared human animation methods">
+        <p class="caption">
+          Distribution of subjective MOS ratings for the compared human animation methods. Higher scores indicate better perceived generation quality.
+        </p>
+      </div>
+
       <div class="content has-text-justified result-note">
         <p>
           Compared with EchoMimicV2, MAVAGEN improves frame and sequence quality, slightly improves audio-visual synchrony
-          and motion consistency, and introduces EmoAcc as an auxiliary task-specific measure of emotional agreement.
+          and motion consistency, introduces EmoAcc as an auxiliary task-specific measure of emotional agreement, and receives
+          the highest MOS score in the subjective evaluation.
         </p>
       </div>
     </div>

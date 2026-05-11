@@ -1,3 +1,5 @@
 .DS_store
 .idea
 main.tex
+.venv
+evaluation_gradio
